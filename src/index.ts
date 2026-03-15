@@ -1,13 +1,12 @@
 import express from "express"
 import { serverConfig } from "./config/index.ts"
+import userRouter from "./routers/users.router.ts"
 
 // config app
 const app = express()
 
-// setup route
-app.get('/ping', (req, res) => {
-  res.status(200).send(`Pong`)
-})
+// setup routes
+app.use("/users", userRouter)
 
 // spin up the server
 app.listen(serverConfig.PORT, () => {
