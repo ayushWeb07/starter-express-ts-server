@@ -1,12 +1,12 @@
 import express from "express"
 import { serverConfig } from "./config/index.ts"
-import userRouter from "./routers/users.router.ts"
+import v1Router from "./routers/v1/index.router.ts"
 
 // config app
 const app = express()
 
 // setup routes
-app.use("/users", userRouter)
+app.use("/api/v1", v1Router)
 
 // spin up the server
 app.listen(serverConfig.PORT, () => {
