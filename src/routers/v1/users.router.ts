@@ -1,12 +1,24 @@
-import { Router } from "express"
-import * as users from "../../controllers/users.controller.ts"
+import { Router } from "express";
+import * as users from "../../controllers/users.controller.ts";
 
-const router= Router()
+import {
+  validateRequestBody,
+  validateRequestUrlParams,
+} from "../../validators/index.ts";
 
-router.get('/', users.getMany)
-router.get('/:id', users.getOne)
-router.post('/', users.create)
-router.put('/:id', users.update)
-router.delete('/:id', users.remove)
+import {
+  createSchema,
+  getOneSchema,
+  removeSchema,
+  updateSchema,
+} from "../../validators/users.validator.ts";
 
-export default router
+const router = Router();
+
+router.get("/", users.getMany);
+router.get("/:id", validateRequestUrlParams(getOneSchema), users.getOne);
+router.post("/", validateRequestBody(createSchema), users.create);
+router.put("/:id", validateRequestUrlParams(updateSchema), users.update);
+router.delete("/:id", validateRequestUrlParams(removeSchema), users.remove);
+
+export default router;

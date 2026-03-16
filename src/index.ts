@@ -5,6 +5,9 @@ import v1Router from "./routers/v1/index.router.ts"
 // config app
 const app = express()
 
+// setup global middlewares
+app.use(express.json())
+
 // setup routes
 app.use("/api/v1", v1Router)
 
