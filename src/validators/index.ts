@@ -23,7 +23,7 @@ const validateRequestBody = (schema: ZodObject) => {
 const validateRequestQueryParams = (schema: ZodObject) => {
   // return a middleware validating req query params
   return async (req: Request, res: Response, next: NextFunction) => {
-    const result= await schema.safeParseAsync(req.params);
+    const result= await schema.safeParseAsync(req.query);
     
     if(result.success) {
       next();
