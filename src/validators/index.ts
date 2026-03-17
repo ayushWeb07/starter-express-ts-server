@@ -26,7 +26,7 @@ const validateRequestQueryParams = (schema: ZodObject) => {
     const result= await schema.safeParseAsync(req.query);
     
     if(result.success) {
-      next();
+     next();
     } else {
       return res.status(400).json({
         message: "Invalid request query params",

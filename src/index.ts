@@ -8,7 +8,7 @@ const app = express()
 // setup global middlewares
 app.use(express.json())
 
-// setup routes
+// setup version routes
 app.use("/api/v1", v1Router)
 
 // spin up the server
