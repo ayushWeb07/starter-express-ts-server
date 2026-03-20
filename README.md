@@ -24,13 +24,14 @@ configuring the backend.
     │
     ├── src
     │   ├── controllers     # Route controllers
-    │   ├── routes          # API routes
-    │   ├── services        # Business logic
-    │   ├── middleware      # Custom middleware
+    │   ├── routers          # API routes
+    │   ├── utils        # Utility functions
+    │   ├── validators        # ZOD validators
+    │   ├── middlewares      # Custom middlewares
     │   ├── config          # App configuration
     │   └── index.ts       # Entry point
     │
-    ├── dist                # Compiled JavaScript output
+    ├── logs                # All the logs by winston
     ├── package.json
     ├── tsconfig.json
     └── README.md
@@ -50,6 +51,12 @@ Install dependencies:
 
 ``` bash
 pnpm install
+```
+
+Add `.env file`:
+
+```bash
+PORT=3000
 ```
 
 ------------------------------------------------------------------------
